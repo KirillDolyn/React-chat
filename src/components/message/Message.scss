@@ -1,0 +1,132 @@
+@import "../../styles/variables.scss";
+
+.message {
+  $self: &;
+
+  display: flex;
+  max-width: 1200px;
+  margin-bottom: 15px;
+  padding: 20px;
+
+  &__avatar {
+    display: flex;
+    flex-direction: column-reverse;
+    img {
+      border-radius: 50%;
+      width: 33px;
+      height: 33px;
+      margin-right: 13px;
+      margin-bottom: 5px;
+    }
+  }
+  &__buble {
+    background: $blue;
+    box-shadow: 0 5px 5px rgba(4, 11, 26, 0.1);
+    border-radius: 12px 12px 12px 0;
+    padding: 5px;
+  }
+
+  &__attachments {
+    display: flex;
+    &-item {
+      margin-right: 5px;
+      cursor: pointer;
+      img {
+        width: 45px;
+        height: 45px;
+        border-radius: 10px;
+        margin-top: 5px;
+      }
+    }
+  }
+  span {
+    color: #fff;
+    line-height: 20px;
+  }
+  &__date {
+    font-size: 12px;
+    opacity: 0.4;
+    margin-top: 10px;
+  }
+
+  &--isme {
+    display: flex;
+    flex-direction: row-reverse;
+
+    #{$self}__content {
+      margin-bottom: 15px;
+      flex-direction: row-reverse;
+    }
+    #{$self}__avatar {
+      img {
+        margin-right: 0;
+        margin-left: 13px;
+      }
+    }
+    #{$self}__info {
+      text-align: right;
+    }
+    #{$self}__buble {
+      background: #ffff;
+      border: 1px solid #ececec;
+      box-shadow: 0 4px 4px rgba(4, 11, 26, 0.1);
+      border-radius: 12px 12px 0 12px;
+      #{$self}__text {
+        color: black;
+      }
+    }
+  }
+
+  &--image {
+    #{$self}__attachments {
+      &-item {
+        img {
+          width: 150px;
+          height: 150px;
+        }
+      }
+    }
+  }
+  &--is-typing {
+    #{$self}__buble {
+      background-color: rgb(169, 176, 218);
+    }
+  }
+  &__typing {
+    will-change: transform;
+    width: auto;
+    border-radius: 50px;
+    padding: 10px;
+    display: table;
+
+    animation: 2s bulge infinite ease-out;
+
+    span {
+      height: 10px;
+      width: 10px;
+      float: left;
+      margin: 0 1px;
+      background-color: #c5c5c7;
+      display: block;
+      border-radius: 50%;
+      opacity: 0.4;
+      @for $i from 1 through 3 {
+        &:nth-of-type(#{$i}) {
+          animation: 1s blink infinite ($i * 0.3333s);
+        }
+      }
+    }
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes bulge {
+    50% {
+      transform: scale(1.05);
+    }
+  }
+}

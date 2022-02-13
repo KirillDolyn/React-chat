@@ -1,0 +1,47 @@
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  &__top {
+    text-align: center;
+    margin-bottom: 50px;
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 33px;
+      opacity: 0.5;
+    }
+  }
+  .button {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  &__register-link {
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    color: #adadadad;
+  }
+
+  &__success-block {
+    text-align: center;
+    display: block;
+    font-size: 16px;
+
+    p {
+      color: #adadadad;
+    }
+  }
+  .block {
+    width: 430px;
+  }
+}
